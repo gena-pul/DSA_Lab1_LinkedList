@@ -22,6 +22,7 @@ bool authenticate(User* head, const string& username, const string& password);
 bool removeFront(User*& head);
 bool removeByUsername(User*& head, const string& username);
 void clearList(User*& head);
+size_t size(User* head);
 
 int main() {
 	User* head = nullptr;
@@ -52,6 +53,8 @@ int main() {
 	
 	clearList(head);
 	cout << "Current clearing list" << endl;
+	
+	cout << "List size: " << size(head) << endl;
 
 	return 0;
 }
@@ -131,3 +134,15 @@ void clearList(User*& head){
 	removeFront(head);
 	}
 }
+
+size_t size(User* head){
+	size_t count = 0;
+
+	User* current = head;
+	while(cuurent){
+	    count++;
+	    current = current->next;
+	}
+	return count;
+}
+
