@@ -21,6 +21,7 @@ User* findUser(User* head, const string& username);
 bool authenticate(User* head, const string& username, const string& password);
 bool removeFront(User*& head);
 bool removeByUsername(User*& head, const string& username);
+void clearList(User*& head);
 
 int main() {
 	User* head = nullptr;
@@ -49,7 +50,8 @@ int main() {
 	removeByUsername(head, "Kylie Lee");
 	cout << "Current Users: " << endl;
 	
-
+	clearList(head);
+	cout << "Current clearing list" << endl;
 
 	return 0;
 }
@@ -122,4 +124,10 @@ bool removeByUsername(User*& head, const string& username){
 		current = current->next;
 	}
 	return false;
+}
+
+void clearList(User*& head){
+	while(head){
+	removeFront(head);
+	}
 }
