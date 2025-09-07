@@ -17,8 +17,23 @@ using namespace std;
 	}
 };
 bool insertUser(User*& head, const string& username, const string& password);
+User* findUser(User* head, const string& username);
 
 int main() {
+	User* head = nullptr;
+
+	insertUser(head, "John Andrews","drew3233*");
+	insertUser(head, "Kylie Lee", "stormi04:)");
+	insertUser(head, "Mary Sally", "kkk87393");
+
+	if(!insertUser(head, "Mary", "krazyi24938"){
+	cout << "This username is not available. Please enter a unique username./n";
+	}
+
+	User* u = findUser(head, "Kylie");
+	if(u){
+	cout << "User found: " << u->username << endl;
+	}
 	
 	return 0;
 }
@@ -30,14 +45,25 @@ bool insertUser(User*& head, const string& username, const string& password){
 
 	User* current = head;
 	while(current){
-	if(current->username == username){
-	  return false;
+	     if(current->username == username){
+	 	 return false;
+		}
+		if(!current->next){
+	  	  break;
+		}
+		current = current->next;
 	}
-	if(!current -> next){
-	  break;
-	current = current->next;
-	}
-
 	current->next = new Username(username, password);
 	return true;
+}
+
+User* findUser(User* head, const string& username){
+	User* current = head;
+	while(current){
+	    if(current->username == username){
+		return current;
+	     }
+	     current = current->next;
+	}
+	return nullptr;
 }
