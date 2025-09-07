@@ -18,6 +18,7 @@ using namespace std;
 };
 bool insertUser(User*& head, const string& username, const string& password);
 User* findUser(User* head, const string& username);
+bool authenticate(User* head, const string& username, const string& password);
 
 int main() {
 	User* head = nullptr;
@@ -26,15 +27,20 @@ int main() {
 	insertUser(head, "Kylie Lee", "stormi04:)");
 	insertUser(head, "Mary Sally", "kkk87393");
 
-	if(!insertUser(head, "Mary", "krazyi24938"){
+	if(!insertUser(head, "Mary Sally", "krazyi24938"){
 	cout << "This username is not available. Please enter a unique username./n";
 	}
 
-	User* u = findUser(head, "Kylie");
+	User* u = findUser(head, "Kylie Lee");
 	if(u){
 	cout << "User found: " << u->username << endl;
 	}
-	
+
+	cout << "Authenticating User: Kylie Lee Password:**********/n"
+	<< authenticate(head, "Kylie Lee", "stormi04:)")? "Verified!" : "Incorrect Username or Password" << endl;
+	cout << "Authenticating User: Mary Sally Password:Kennedy321=0" 
+	<< authenticate(head, "Mary Sally", "Kennedy321=0")? "Verified!" : "Incorrect Username or Password" << endl;
+
 	return 0;
 }
 bool insertUser(User*& head, const string& username, const string& password){
@@ -66,4 +72,9 @@ User* findUser(User* head, const string& username){
 	     current = current->next;
 	}
 	return nullptr;
+}
+
+bool authenticate(User* head, const string& username, const string& password){
+	User* current = findUser(head, username);
+	return current && current->password == password;
 }
