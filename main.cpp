@@ -16,6 +16,10 @@ using namespace std;
 	   next = nullptr;
 	}
 };
+
+//________________________________
+// Function Declaration
+//________________________________
 bool insertUser(User*& head, const string& username, const string& password);
 User* findUser(User* head, const string& username);
 bool authenticate(User* head, const string& username, const string& password);
@@ -25,6 +29,7 @@ void clearList(User*& head);
 size_t size(User* head);
 
 int main() {
+
 	User* head = nullptr;
 
 	insertUser(head, "John Andrews","drew3233*");
@@ -47,17 +52,25 @@ int main() {
 
 	removeFront(head);
 	cout << "After removing front: " << endl;
-	
+	printUsers(head);
+
 	removeByUsername(head, "Kylie Lee");
 	cout << "Current Users: " << endl;
-	
+	printUsers(head);
+
 	clearList(head);
 	cout << "Current clearing list" << endl;
-	
+	printUsers(head);
+
 	cout << "List size: " << size(head) << endl;
 
 	return 0;
 }
+
+//__________________________________________
+// Function Declarations
+//__________________________________________
+
 bool insertUser(User*& head, const string& username, const string& password){
 	if(!head){
 	  head = new User(username, password);
@@ -146,3 +159,11 @@ size_t size(User* head){
 	return count;
 }
 
+void printUsers(User* head){
+	User* current = head;
+	while(current){
+	    cout << current->username << " ";
+	    current = current->next;
+	}
+	cout << "NULL" << endl;
+}
