@@ -20,6 +20,7 @@ bool insertUser(User*& head, const string& username, const string& password);
 User* findUser(User* head, const string& username);
 bool authenticate(User* head, const string& username, const string& password);
 bool removeFront(User*& head);
+bool removeByUsername(User*& head, const string& username);
 
 int main() {
 	User* head = nullptr;
@@ -44,6 +45,9 @@ int main() {
 
 	removeFront(head);
 	cout << "After removing front: " << endl;
+	
+	removeByUsername(head, "Kylie Lee");
+	cout << "Current Users: " << endl;
 	
 
 
@@ -93,4 +97,29 @@ bool removeFront(User*& head){
 	head = head->next;
 	delete temp;
 	return true;
+}
+
+bool removeByUsername(User*& head, const string& username){
+	if(!head){
+	return false;
+	}
+
+	if(head->username == username){
+	   User* temp = head;
+	   head = head->next;
+	   delete temp;
+	   return true;
+	}
+
+	User* current = head;
+	while(current->next){
+	    if (current->next->username == username){
+	       	User* t = current->next;
+	  	current->next = current->next->next;
+		delete t;
+		return true;
+	    }
+		current = current->next;
+	}
+	return false;
 }
