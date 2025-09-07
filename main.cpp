@@ -19,6 +19,7 @@ using namespace std;
 bool insertUser(User*& head, const string& username, const string& password);
 User* findUser(User* head, const string& username);
 bool authenticate(User* head, const string& username, const string& password);
+bool removeFront(User*& head);
 
 int main() {
 	User* head = nullptr;
@@ -40,6 +41,11 @@ int main() {
 	<< authenticate(head, "Kylie Lee", "stormi04:)")? "Verified!" : "Incorrect Username or Password" << endl;
 	cout << "Authenticating User: Mary Sally Password:Kennedy321=0" 
 	<< authenticate(head, "Mary Sally", "Kennedy321=0")? "Verified!" : "Incorrect Username or Password" << endl;
+
+	removeFront(head);
+	cout << "After removing front: " << endl;
+	
+
 
 	return 0;
 }
@@ -77,4 +83,14 @@ User* findUser(User* head, const string& username){
 bool authenticate(User* head, const string& username, const string& password){
 	User* current = findUser(head, username);
 	return current && current->password == password;
+}
+
+bool removeFront(User*& head){
+	if(!head){
+	 return false;
+	}
+	User* temp = head;
+	head = head->next;
+	delete temp;
+	return true;
 }
