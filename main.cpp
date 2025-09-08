@@ -27,6 +27,7 @@ bool removeFront(User*& head);
 bool removeByUsername(User*& head, const string& username);
 void clearList(User*& head);
 size_t size(User* head);
+void printUsers(User* head);
 
 int main() {
 
@@ -87,7 +88,7 @@ bool insertUser(User*& head, const string& username, const string& password){
 		}
 		current = current->next;
 	}
-	current->next = new Username(username, password);
+	current->next = new User(username, password);
 	return true;
 }
 
@@ -152,7 +153,7 @@ size_t size(User* head){
 	size_t count = 0;
 
 	User* current = head;
-	while(cuurent){
+	while(current){
 	    count++;
 	    current = current->next;
 	}
