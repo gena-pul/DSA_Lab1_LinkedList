@@ -7,7 +7,7 @@ using namespace std;
 
  struct User{
 	string username;
-	string password
+	string password;
 	User* next;
 
 	User(string u, string p){
@@ -36,7 +36,7 @@ int main() {
 	insertUser(head, "Kylie Lee", "stormi04:)");
 	insertUser(head, "Mary Sally", "kkk87393");
 
-	if(!insertUser(head, "Mary Sally", "krazyi24938"){
+	if(!insertUser(head, "Mary Sally", "krazyi24938")){
 	cout << "This username is not available. Please enter a unique username./n";
 	}
 
@@ -46,9 +46,9 @@ int main() {
 	}
 
 	cout << "Authenticating User: Kylie Lee Password:**********/n"
-	<< authenticate(head, "Kylie Lee", "stormi04:)")? "Verified!" : "Incorrect Username or Password" << endl;
+	<< (authenticate(head, "Kylie Lee", "stormi04:)")? "Verified!" : "Incorrect Username or Password") << endl;
 	cout << "Authenticating User: Mary Sally Password:Kennedy321=0" 
-	<< authenticate(head, "Mary Sally", "Kennedy321=0")? "Verified!" : "Incorrect Username or Password" << endl;
+	<< (authenticate(head, "Mary Sally", "Kennedy321=0")? "Verified!" : "Incorrect Username or Password") << endl;
 
 	removeFront(head);
 	cout << "After removing front: " << endl;
