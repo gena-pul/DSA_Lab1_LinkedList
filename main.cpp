@@ -163,7 +163,7 @@ size_t size(User* head){
 void printUsers(User* head){
 	User* current = head;
 	while(current){
-	    cout << current->username << " ";
+	    cout << current->username << "-> ";
 	    current = current->next;
 	}
 	cout << "NULL" << endl;
