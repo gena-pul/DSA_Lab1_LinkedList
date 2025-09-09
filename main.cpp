@@ -38,32 +38,33 @@ int main() {
 	insertUser(head, "Mary Sally", "kkk87393");
 
 	if(!insertUser(head, "Mary Sally", "krazyi24938")){
-	cout << "This username is not available. Please enter a unique username.\n";
+	cout << "\nThis username is not available. Please enter a unique username.";
 	}
 
 	User* u = findUser(head, "Kylie Lee");
 	if(u){
-	cout << "User found: " << u->username << endl;
-	}
+	cout << "\nUser found: " << u->username << endl;
+	} else {
+		cout << "\n User not found." << endl;
 
-	cout << "Authenticating User: Kylie Lee Password:**********/n"
+	cout << "\nAuthenticating User: Kylie Lee Password:**********/n"
 	<< (authenticate(head, "Kylie Lee", "stormi04:)")? "\nVerified!" : "\nIncorrect Username or Password") << endl;
-	cout << "Authenticating User: Mary Sally Password:Kennedy321=0" 
+	cout << "\nAuthenticating User: Mary Sally Password:Kennedy321=0" 
 	<< (authenticate(head, "Mary Sally", "Kennedy321=0")? "\nVerified!" : "\nIncorrect Username or Password") << endl;
 
 	removeFront(head);
-	cout << "After removing front: " << endl;
+	cout << "\nAfter removing front: " << endl;
 	printUsers(head);
 
 	removeByUsername(head, "Kylie Lee");
-	cout << "Current Users: " << endl;
+	cout << "\nCurrent Users: " << endl;
 	printUsers(head);
 
 	clearList(head);
-	cout << "Current clearing list" << endl;
+	cout << "\nCurrent clearing list" << endl;
 	printUsers(head);
 
-	cout << "List size: " << size(head) << endl;
+	cout << "\nList size: " << size(head) << endl;
 
 	return 0;
 }
