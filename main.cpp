@@ -46,7 +46,8 @@ int main() {
 	cout << "\nUser found: " << u->username << endl;
 	} else {
 		cout << "\n User not found." << endl;
-
+	}
+	
 	cout << "\nAuthenticating User: Kylie Lee Password:**********/n"
 	<< (authenticate(head, "Kylie Lee", "stormi04:)")? "\nVerified!" : "\nIncorrect Username or Password") << endl;
 	cout << "\nAuthenticating User: Mary Sally Password:Kennedy321=0" 
